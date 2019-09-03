@@ -19,14 +19,16 @@ public class Main {
             }
         }
 
-        ArrayList<HashMap.Entry<String, Integer>> bullShit = new ArrayList<>();
-        bullShit.addAll(count.entrySet());
-        Collections.sort(bullShit, (w1, w2) -> w2.getValue() - w1.getValue());
+        System.out.println("HashMap: " + count);
+
+        ArrayList<HashMap.Entry<String, Integer>> arrList = new ArrayList<>();
+        arrList.addAll(count.entrySet());
+        Collections.sort(arrList, (w1, w2) -> w2.getValue() - w1.getValue());
         String[] topFiddy = new String[50];
         for (int i = 0; i < 50; i++) {
-            topFiddy[i] = bullShit.get(i).getKey() + " (" + bullShit.get(i).getValue() + ")";
+            topFiddy[i] = arrList.get(i).getKey() + " (" + arrList.get(i).getValue() + ")";
         }
-        Arrays.sort(topFiddy, (w1, w2) -> (int) w1.toLowerCase().charAt(0) - (int) w2.toLowerCase().charAt(0));
+        Arrays.sort(topFiddy, (w1, w2) -> w1.compareToIgnoreCase(w2));
         System.out.println("\n================================================================\n");
         for (int i = 0; i < topFiddy.length; i++) {
             System.out.println((i + 1) + ".) " + topFiddy[i]);
